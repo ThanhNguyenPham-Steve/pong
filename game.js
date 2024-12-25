@@ -8,7 +8,7 @@ const gameState = {
     type: Phaser.AUTO,
     width: window.innerWidth,
     height: (window.innerWidth)*3/4,
-    backgroundColor: '000000',
+    backgroundColor: '111111',
     scene: [StartScene, SelectScene, GameScene]
   };
   
