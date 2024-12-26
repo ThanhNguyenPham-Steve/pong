@@ -4,8 +4,8 @@ class StartScene extends Phaser.Scene {
     }
     create() {
       // Creates the text on the start screen:
-      this.add.text(10, 50, "Pong Game" , { fill: '#F2EAEA', fontSize: '45px' });
-      this.add.text(130, 520, ' Ready Count?\nClick to start!', { fill: '#F2EAEA', fontSize: '20px' });
+      this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2 - 100, "Pong Game" , { fill: '#F2EAEA', fontSize: '45px' }).setOrigin(0.5, 0.5);
+      this.add.text(this.cameras.main.width / 2, 520, 'Ready To Play?\nClick to start!', { fill: '#F2EAEA', fontSize: '40px' }).setOrigin(0.5, 0.5);
                           
       this.input.on('pointerup', () => {
         // Add logic to transition from StartScene to GameScene:
