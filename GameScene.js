@@ -4,6 +4,7 @@ class GameScene extends Phaser.Scene {
     }
     create() {
         this.rounds = 0;
+        this.isPaused = false;
         // Create a graphics object for drawing
         const graphics = this.add.graphics();
         this.gamePaused = false; // Flag to track if the game is paused
@@ -80,11 +81,15 @@ class GameScene extends Phaser.Scene {
             this.showPauseMenu(); // Show the pause menu
         });
         this.releaseBall(this.ball);
+        
     }
 
     async update() {
         if (this.gamePaused) {
             return; // Prevent any movement or logic when the game is paused
+        }
+        function delay(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
         }
         // Ball movement
         this.ball.x += this.ball.velocity.x;
@@ -134,16 +139,22 @@ class GameScene extends Phaser.Scene {
         }
 
         // Ball out of bounds
-        if (this.ball.x < -15) {
+        if (this.ball.x < -15 && this.isPaused == false) {
+            this.isPaused = true;
             gameState.playerScore++;
             this.rounds++;
             this.playerText.setText(`${gameState.playerScore}`);
+            await delay(1000); // Pause for 1 second
+            this.isPaused = false;
             this.releaseBall(this.ball);
         }
-        else if (this.ball.x > config.width + 15) {
+        else if (this.ball.x > config.width + 15 && this.isPaused == false) {
+            this.isPaused = true;
             gameState.computerScore++;
             this.rounds++;
             this.computerText.setText(`${gameState.computerScore}`);
+            await delay(1000); // Pause for 1 second
+            this.isPaused = false;
             this.releaseBall(this.ball);
         }
         if (gameState.playerScore == gameState.pointToWin || gameState.computerScore == gameState.pointToWin) {
