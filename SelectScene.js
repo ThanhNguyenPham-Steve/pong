@@ -127,16 +127,16 @@ class SelectScene extends Phaser.Scene {
         });
         button.on('pointerup', () => {
             if (diffSelectedOption === 0) {
-                gameState.computerSpeed = 2;
-                gameState.ballSpeed = 2;
+                gameState.computerSpeed = 3;
+                gameState.ballSpeed = 5;
             }
             else if (diffSelectedOption === 1) {
-                gameState.computerSpeed = 3;
-                gameState.ballSpeed = 3;
+                gameState.computerSpeed = 5;
+                gameState.ballSpeed = 7;
             }
             else {
-                gameState.computerSpeed = 4;
-                gameState.ballSpeed = 4;
+                gameState.computerSpeed = 7;
+                gameState.ballSpeed = 9;
             }   
             if (levelSelectedOption === 0) {
                 gameState.pointToWin = 5;
