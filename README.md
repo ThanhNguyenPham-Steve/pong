@@ -1,5 +1,5 @@
 # Pong Game
-Web domain :https://pong-oo.glitch.me/
+Web domain :https://pongoo.glitch.me/
 A simple implementation of the classic Pong game. Play against challenge the AI on this retro-style game. The game is fully functional and can be played directly in the browser.
 
 ## Table of Contents
